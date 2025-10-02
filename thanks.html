@@ -6,24 +6,25 @@
   <title>Obrigado!</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    body{
+    html, body {
       margin:0;
+      padding:0;
+      height:100%;
+      overflow:hidden; /* 🔹 remove barra de rolagem */
       font-family:"Poppins", sans-serif;
-      background: transparent; /* mantém o fundo do site */
+      background: transparent;
       display:flex;
       justify-content:center;
       align-items:center;
-      min-height:100vh;
-      padding:20px;
     }
     .wrap{
-      background: rgba(0,0,0,0.4);   /* leve transparência escura */
+      background: rgba(0,0,0,0.4);
       border:1px solid rgba(255,255,255,.2);
       border-radius:12px;
       padding:30px;
       text-align:center;
       max-width:500px;
-      backdrop-filter: blur(6px);   /* efeito vidro */
+      backdrop-filter: blur(6px);
     }
     h1{
       font-size:26px;
@@ -51,7 +52,7 @@
   <div class="wrap">
     <h1>✅ Obrigado!</h1>
     <p>Recebemos suas informações. Nossa equipe entrará em contato em breve.</p>
-    <a href="./">⬅ Voltar ao formulário</a>
+    <a href="https://aguilarceara.github.io/rawellnewforms/">⬅ Voltar ao formulário</a>
   </div>
 </body>
 </html>
