@@ -4,56 +4,117 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulário – Energia Solar</title>
+
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    :root{
+      --card-radius: 14px;
+      --label: #ffffff; /* labels brancos */
+      --input-bg: #ffffff;
+      --input-text: #222;
+      --placeholder: #9aa3a7;
+      --stroke: rgba(255,255,255,.25);
+      --button: #ffd200;
+      --button-text: #1a1a1a;
+      --focus: #30b3a4;
+    }
+
+    *{ box-sizing: border-box; }
+
+    /* Mantém o fundo do site visível atrás do formulário */
     body{
       margin:0;
-      font-family:"Poppins", sans-serif;
-      background: url("https://aguilarceara.github.io/rawellnewforms/bg-solar.jpg") no-repeat center center/cover;
-      /* 🔹 Troque pelo fundo que quiser */
-      min-height:100vh;
-      padding:20px;
+      font-family: "Poppins", system-ui, sans-serif;
+      background: transparent;           /* fundo transparente */
       display:flex;
-      justify-content:center;
       align-items:center;
+      justify-content:center;
+      padding:16px;                       /* respiro para não colar nas bordas */
     }
-    form{
-      width:100%;
-      max-width:600px;
-      padding:20px;
-      border-radius:12px;
-      background: rgba(255,255,255,0.05); /* transparente */
-      backdrop-filter: blur(4px);          /* efeito vidro */
+
+    .card{
+      width: 100%;
+      max-width: 700px; 
+      border: 1px solid var(--stroke);
+      border-radius: var(--card-radius);
+      background: transparent;            /* cartão transparente */
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.1);
     }
-    .field{ margin-bottom:15px; }
-    label{ font-weight:500; display:block; margin-bottom:5px; color:#fff; }
+
+    .field{ margin-bottom: 10px; }
+
+    label{
+      display:block;
+      font-size: 13px;
+      color: var(--label);                /* branco */
+      margin-bottom: 4px;
+      letter-spacing: .2px;
+      font-weight: 500;
+    }
+
     input, select, button{
       width:100%;
-      padding:12px;
-      font-size:14px;
-      border:1px solid rgba(255,255,255,.3);
-      border-radius:6px;
-      outline:none;
-      background:rgba(255,255,255,0.85);
+      height:49px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,.15);
+      outline: none;
+      font-size: 14px;
+      transition: box-shadow .2s ease, border-color .2s ease;
     }
+
+    input::placeholder{
+      color: var(--placeholder);
+      font-size: 13px;
+    }
+
+    input, select{
+      background: var(--input-bg);
+      color: var(--input-text);
+      padding: 0 12px;
+    }
+
+    select{
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #666 50%),
+        linear-gradient(135deg, #666 50%, transparent 50%),
+        linear-gradient(to right, transparent, transparent);
+      background-position:
+        calc(100% - 16px) 16px,
+        calc(100% - 10px) 16px,
+        100% 0;
+      background-size: 5px 5px, 5px 5px, 2.5em 100%;
+      background-repeat: no-repeat;
+      padding-right: 36px;
+    }
+
     input:focus, select:focus{
-      border-color:#ffd200;
-      box-shadow:0 0 0 3px rgba(255,210,0,.3);
+      border-color: var(--focus);
+      box-shadow: 0 0 0 3px rgba(48,179,164,.18);
     }
+
     button{
-      background:#ffd200;
-      color:#111;
-      font-weight:600;
-      cursor:pointer;
-      border:none;
-      margin-top:10px;
-      text-transform:uppercase;
+      background: var(--button);
+      color: var(--button-text);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
     }
-    button:hover{ filter:brightness(0.95); }
+
+    button:hover{ filter: brightness(0.98); }
+    button:active{ transform: translateY(1px); }
   </style>
 </head>
 <body>
-  <form action="https://formsubmit.co/joaoaguilarjp3@gmail.com" method="POST">
+  <form class="card"
+        action="https://formsubmit.co/joaoaguilarjp3@gmail.com"
+        method="POST">
 
     <div class="field">
       <label for="nome">Nome</label>
@@ -62,16 +123,16 @@
 
     <div class="field">
       <label for="telefone">Telefone</label>
-      <input type="tel" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" required>
+      <input type="tel" id="telefone" name="telefone" placeholder="Ex: (85) 99810-5050" required>
     </div>
 
     <div class="field">
-      <label for="consumo">Consumo médio na fatura</label>
+      <label for="consumo">Consumo na fatura de energia</label>
       <select id="consumo" name="consumo" required>
         <option value="" disabled selected>Selecione...</option>
-        <option>R$50 – R$250</option>
-        <option>R$250 – R$500</option>
-        <option>R$500 – R$1.000</option>
+        <option>R$50–R$250</option>
+        <option>R$250–R$500</option>
+        <option>R$500–R$1.000</option>
         <option>Mais de R$1.000</option>
       </select>
     </div>
@@ -86,9 +147,8 @@
       <input type="email" id="email" name="email" required>
     </div>
 
-    <!-- Config extra -->
+    <!-- Config extra mínima -->
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Novo formulário enviado do site">
     <input type="hidden" name="_next" value="https://aguilarceara.github.io/rawellnewforms/thanks.html">
 
     <button type="submit">Enviar</button>
