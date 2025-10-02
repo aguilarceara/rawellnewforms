@@ -6,18 +6,52 @@
   <title>Obrigado!</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    body{ margin:0; font-family:Poppins, sans-serif; background:#f7f7f9; display:grid; place-items:center; min-height:100vh; }
-    .wrap{ background:#fff; padding:30px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,.1); text-align:center; max-width:500px; }
-    h1{ font-size:24px; margin-bottom:10px; }
-    p{ font-size:15px; margin-bottom:20px; color:#444; }
-    a{ display:inline-block; padding:12px 18px; background:#ffd200; color:#111; font-weight:600; border-radius:8px; text-decoration:none; }
+    body{
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      background: transparent; /* mantém o fundo do site */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+    .wrap{
+      background: rgba(0,0,0,0.4);   /* leve transparência escura */
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:12px;
+      padding:30px;
+      text-align:center;
+      max-width:500px;
+      backdrop-filter: blur(6px);   /* efeito vidro */
+    }
+    h1{
+      font-size:26px;
+      margin-bottom:10px;
+      color:#fff;
+    }
+    p{
+      font-size:15px;
+      margin-bottom:20px;
+      color:#eee;
+    }
+    a{
+      display:inline-block;
+      padding:12px 18px;
+      background:#ffd200;
+      color:#111;
+      font-weight:600;
+      border-radius:8px;
+      text-decoration:none;
+    }
+    a:hover{ filter:brightness(0.95); }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>🎉 Obrigado pelo envio!</h1>
+    <h1>✅ Obrigado!</h1>
     <p>Recebemos suas informações. Nossa equipe entrará em contato em breve.</p>
-    <a href="./">Voltar ao formulário</a>
+    <a href="./">⬅ Voltar ao formulário</a>
   </div>
 </body>
 </html>
